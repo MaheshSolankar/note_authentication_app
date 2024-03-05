@@ -6,9 +6,15 @@ EXPOSE 5000
  
 WORKDIR /usr/app/
 
-RUN apt-get update \
-    && apt-get install -y python3 \ 
-    && pip install -r requirements.txt
+#RUN pip install -r requirements.txt
+RUN set -xe \
+    && apt-get update \
+    && apt-get install -y python3 \
+    && apt-get install -y python3-pip
 
-CMD python flask_app.py
+# RUN pip install --upgrade pip
+# apt-get -yqq install python3-pip
+RUN pip install -r ./requirements.txt
+
+CMD python3 flask_app.py
 

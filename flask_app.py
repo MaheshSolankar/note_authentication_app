@@ -75,7 +75,7 @@ def predict_note_file():
     """
     df_test = pd.read_csv(request.files.get("file"))
     prediction = classifier.predict(df_test)
-    return "Predicted value for the csv is : " + str(predication)
+    return "Predicted value for the csv is : " + str(prediction)
 
 if __name__== "__main__":
     app.run(debug=True ,port=8080,use_reloader=False)
